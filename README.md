@@ -149,7 +149,7 @@
       <input type="text" id="nome" placeholder="Digite seu nome" required />
 
       <label for="telefone">WhatsApp</label>
-      <input type="tel" id="telefone" placeholder="(DD) 99999-9999" maxlength="15" required />
+      <input type="tel" id="telefone" placeholder="(DD) 999999-9999" maxlength="15" required />
 
       <label for="cidade">Cidade</label>
       <input type="text" id="cidade" placeholder="Sua cidade" required />
@@ -333,7 +333,7 @@
         `⏳ *Previsão:* ${previsaoSelect.value}`;
 
       // Abre WhatsApp
-      window.open(`https://api.whatsapp.com/send?phone=5598981956635&text=${msg}`, '_blank');
+      window.open(`https://api.whatsapp.com/send?phone=5598984263537&text=${msg}`, '_blank');
     });
   </script>
 </body>
