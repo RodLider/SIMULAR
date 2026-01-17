@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
@@ -149,7 +149,8 @@
       <input type="text" id="nome" placeholder="Digite seu nome" required />
 
       <label for="telefone">WhatsApp</label>
-      <input type="tel" id="telefone" placeholder="(DD) 999999-9999" maxlength="15" required />
+      <!-- Placeholder atualizado para o formato solicitado -->
+      <input type="tel" id="telefone" placeholder="99 99999-9999" maxlength="13" required />
 
       <label for="cidade">Cidade</label>
       <input type="text" id="cidade" placeholder="Sua cidade" required />
@@ -282,21 +283,25 @@
       btn.disabled = !parcelaSelect.value;
     });
 
-    // Máscara de Telefone (Formato Brasileiro)
+    // --- NOVA MÁSCARA DE TELEFONE (Formato: 98 98526-3537) ---
     telefoneInput.addEventListener('input', (e) => {
-      let value = e.target.value.replace(/\D/g, '');
-      if (value.length > 11) value = value.slice(0, 11); // Limita tamanho
+      // Remove tudo que não é dígito
+      let x = e.target.value.replace(/\D/g, '');
+      
+      // Limita a 11 números
+      if (x.length > 11) x = x.slice(0, 11);
 
-      if (value.length > 2) {
-        value = `(${value.substring(0, 2)}) ${value.substring(2)}`;
+      // Aplica a máscara:
+      // (\d{0,2}) -> Pega os 2 primeiros (DDD)
+      // (\d{0,5}) -> Pega os próximos 5
+      // (\d{0,4}) -> Pega os últimos 4
+      const match = x.match(/^(\d{0,2})(\d{0,5})(\d{0,4})$/);
+      
+      if (match) {
+        // Constrói a string: "DDD" + espaço + "XXXXX" + hífen + "XXXX"
+        e.target.value = !match[2] ? match[1] 
+                         : match[1] + ' ' + match[2] + (match[3] ? '-' + match[3] : '');
       }
-      if (value.length > 9) {
-        value = `${value.substring(0, 9)}-${value.substring(9)}`; /* Ajustado para celular 9 dígitos */
-      } else if (value.length > 10) {
-          // Ajuste fino para telefones fixos vs celulares se necessário, 
-          // mas o padrão acima cobre bem a visualização.
-      }
-      e.target.value = value;
     });
 
     // Enviar para WhatsApp
@@ -307,7 +312,7 @@
         nomeInput.focus();
         return;
       }
-      if (telefoneInput.value.length < 13) {
+      if (telefoneInput.value.length < 12) { // Ajustado para o tamanho mínimo da nova máscara
         alert("Por favor, digite um WhatsApp válido com DDD.");
         telefoneInput.focus();
         return;
@@ -333,7 +338,7 @@
         `⏳ *Previsão:* ${previsaoSelect.value}`;
 
       // Abre WhatsApp
-      window.open(`https://api.whatsapp.com/send?phone=5598984263537&text=${msg}`, '_blank');
+      window.open(`https://api.whatsapp.com/send?phone=5598985263537&text=${msg}`, '_blank');
     });
   </script>
 </body>
