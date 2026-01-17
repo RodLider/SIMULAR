@@ -33,6 +33,17 @@
       border-radius: 8px;
       border: 1px solid #ccc;
     }
+
+    @media (max-width: 768px) {
+      body { padding: 10px; }
+      .container { padding: 18px; }
+      h2 { font-size: 22px; }
+    }
+
+    @media (min-width: 769px) {
+      .container { max-width: 560px; }
+    }
+    }
     button {
       margin-top: 18px;
       background: #25D366;
@@ -53,8 +64,7 @@
       <label>Nome</label>
       <input type="text" id="nome" required />
 
-      <label>E-mail</label>
-      <input type="email" id="email" required />
+      
 
       <label>WhatsApp</label>
       <input type="tel" id="telefone" placeholder="(99) 99999-9999" required />
@@ -168,8 +178,8 @@
     });
 
     btn.addEventListener('click', () => {
-      const msg = `Olá, meu nome é *${nome.value}*.%0A%0ATenho interesse em crédito para investimento:%0A📍 Cidade: ${cidade.value}%0A📞 WhatsApp: ${telefone.value}%0A📩 E-mail: ${email.value}%0A🏡 Área: ${investimento.value}%0A💰 Crédito: R$ ${Number(valor.value).toLocaleString('pt-BR')}%0A💳 Parcela: R$ ${Number(parcela.value).toLocaleString('pt-BR')}%0A💵 Possui entrada: ${entrada.value}%0A💼 Valor da entrada: ${valorEntrada.value}%0A📊 Renda mensal: ${renda.value}%0A⏳ Previsão do investimento: ${previsao.value}`;
-      window.open(`https://api.whatsapp.com/send?phone=5598981956635&text=${msg}`, '_blank');
+      const msg = `Olá, meu nome é *${nome.value}*.%0A%0ATenho interesse em crédito para investimento:%0A📍 Cidade: ${cidade.value}%0A📞 WhatsApp: ${telefone.value}%0A🏡 Área: ${investimento.value}%0A💰 Crédito: R$ ${Number(valor.value).toLocaleString('pt-BR')}%0A💳 Parcela: R$ ${Number(parcela.value).toLocaleString('pt-BR')}%0A💵 Possui entrada: ${entrada.value}%0A💼 Valor da entrada: ${valorEntrada.value}%0A📊 Renda mensal: ${renda.value}%0A⏳ Previsão do investimento: ${previsao.value}`;
+      window.open(`https://api.whatsapp.com/send?phone=5598985263537&text=${msg}`, '_blank');
     });
   </script>
 </body>
