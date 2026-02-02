@@ -199,7 +199,7 @@
       <label for="investimento">Objetivo do Investimento</label>
       <select id="investimento">
         <option>Área Rural / Gado / Terras / Fazenda / Maquinários Agrícolas</option>
-        <option>Veículo (Carro/Caminhão/áquinas Pesadas)</option>
+        <option>Veículo (Carro/Caminhão/Máquinas Pesadas)</option>
         <option>Imóvel</option>
         <option>Terreno / Construção</option>
         <option>Reforma</option>
