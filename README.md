@@ -198,13 +198,13 @@
 
       <label for="investimento">Objetivo do Investimento</label>
       <select id="investimento">
-        <option>Área Rural</option>
-        <option>Veículo (Carro/Caminhão)</option>
-        <option>Imóvel Urbano</option>
-        <option>Construção</option>
+        <option>Área Rural / Gado / Terras / Fazenda / Maquinários Agrícolas</option>
+        <option>Veículo (Carro/Caminhão/áquinas Pesadas)</option>
+        <option>Imóvel</option>
+        <option>Terreno / Construção</option>
         <option>Reforma</option>
         <option>Loja / Ponto Comercial</option>
-        <option>Capital de Giro</option>
+        <option>Capital de Giro/Empresarial</option>
       </select>
 
       <label for="valor">Valor do Crédito Desejado</label>
