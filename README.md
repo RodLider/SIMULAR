@@ -12,9 +12,9 @@
     
     body {
       font-family: 'Segoe UI', 'Roboto', Helvetica, Arial, sans-serif;
-      /* Imagem de fundo profissional e overlay escuro para contraste */
-      background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
-        url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat fixed;
+      /* Imagem de fundo atualizada com overlay escuro para contraste */
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)),
+        url('https://i.imgur.com/aPLuDmc.jpeg') center/cover no-repeat fixed;
       margin: 0;
       padding: 20px;
       min-height: 100vh;
@@ -210,6 +210,7 @@
       <label for="valor">Valor do Crédito Desejado</label>
       <select id="valor">
         <option value="">Selecione o valor</option>
+        <option value="70000">R$ 70.000</option>
         <option value="100000">R$ 100.000</option>
         <option value="150000">R$ 150.000</option>
         <option value="250000">R$ 250.000</option>
@@ -235,6 +236,7 @@
   <script>
     // Configuração das parcelas
     const parcelas = {
+      70000:  [550, 650, 750],
       100000: [750, 850, 900, 1000],
       150000: [850, 900, 1000, 1250],
       250000: [1000, 1250, 2300],
