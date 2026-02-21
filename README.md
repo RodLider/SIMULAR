@@ -179,6 +179,16 @@
         <option>Outros</option>
       </select>
 
+      <!-- Nova Pergunta Adicionada -->
+      <label for="historico">Já fez Financiamento ou Consórcio?</label>
+      <select id="historico">
+        <option value="">Selecione uma opção</option>
+        <option value="Nenhum">Não, nunca fiz</option>
+        <option value="Financiamento">Já fiz Financiamento</option>
+        <option value="Consórcio">Já fiz Consórcio</option>
+        <option value="Ambos">Já fiz Ambos</option>
+      </select>
+
       <label for="valor">Valor do Crédito Desejado</label>
       <select id="valor">
         <option value="">Selecione o valor</option>
@@ -249,6 +259,7 @@
     const rendaSelect = document.getElementById('renda');
     const previsaoSelect = document.getElementById('previsao');
     const investimentoSelect = document.getElementById('investimento');
+    const historicoSelect = document.getElementById('historico'); // Nova variável
     const valorSelect = document.getElementById('valor');
     const parcelaSelect = document.getElementById('parcela');
     const possuiEntradaSelect = document.getElementById('possuiEntrada');
@@ -310,6 +321,7 @@
         cidadeInput.value.length >= 2,
         rendaSelect.value !== "",
         previsaoSelect.value !== "",
+        historicoSelect.value !== "", // Validando o novo campo
         valorSelect.value !== "",
         parcelaSelect.value !== ""
       ];
@@ -323,7 +335,7 @@
     }
 
     // Listeners para validação em tempo real
-    [nomeInput, telefoneInput, cidadeInput, rendaSelect, previsaoSelect, parcelaSelect, entradaSelect].forEach(el => {
+    [nomeInput, telefoneInput, cidadeInput, rendaSelect, previsaoSelect, historicoSelect, parcelaSelect, entradaSelect].forEach(el => {
       el.addEventListener('input', validarBotao);
       el.addEventListener('change', validarBotao);
     });
@@ -342,6 +354,7 @@
     btn.addEventListener('click', () => {
       const valorCreditoTexto = valorSelect.options[valorSelect.selectedIndex].text;
       const parcelaTexto = parcelaSelect.options[parcelaSelect.selectedIndex].text;
+      const historicoTexto = historicoSelect.options[historicoSelect.selectedIndex].text; // Captura do novo campo
       
       let entradaFinalMsg = "Não possui entrada no momento";
       if (possuiEntradaSelect.value === 'Sim') {
@@ -357,6 +370,7 @@
         `📊 *Renda:* ${rendaSelect.value}%0A` +
         `⏳ *Previsão:* ${previsaoSelect.value}%0A` +
         `🏡 *Objetivo:* ${investimentoSelect.value}%0A` +
+        `📜 *Histórico:* ${historicoTexto}%0A` +
         `💰 *Crédito:* ${valorCreditoTexto}%0A` +
         `💳 *Parcela:* ${parcelaTexto}%0A` +
         `💵 *Entrada:* ${entradaFinalMsg}`;
