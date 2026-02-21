@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
@@ -153,7 +153,7 @@
       <label for="renda">Renda Mensal Aproximada</label>
       <select id="renda">
         <option value="">Selecione sua renda</option>
-        <option>Até R$ 2.500</option>
+        <option>Até R$ 1.500</option>
         <option>R$ 2.500 a R$ 5.000</option>
         <option>R$ 5.000 a R$ 10.000</option>
         <option>R$ 10.000 a R$ 20.000</option>
@@ -163,11 +163,11 @@
       <label for="previsao">Previsão para Realizar</label>
       <select id="previsao">
         <option value="">Selecione o prazo</option>
-        <option>Imediato</option>
-        <option>Em até 30 dias</option>
-        <option>De 1 a 3 meses</option>
-        <option>De 3 a 6 meses</option>
-        <option>Acima de 6 meses</option>
+        <option>Até 30 Dias</option>
+        <option>Em até 2 meses</option>
+        <option>De 3 a 4 meses</option>
+        <option>De 4 a 6 meses</option>
+        <option>Até em 1 ano</option>
       </select>
 
       <label for="investimento">Objetivo do Investimento</label>
@@ -203,7 +203,7 @@
         <option value="">Selecione o crédito primeiro</option>
       </select>
 
-      <label for="possuiEntrada">Possui Entrada?</label>
+      <label for="possuiEntrada">Você Possui Entrada?</label>
       <select id="possuiEntrada">
         <option value="Nao">Não</option>
         <option value="Sim">Sim</option>
@@ -350,7 +350,7 @@
 
       const msg = 
         `Olá! Me chamo *${nomeInput.value}*.%0A%0A` +
-        `Gostaria de uma simulação de crédito Rodlider:%0A` +
+        `Gostaria de uma simulação de crédito:%0A` +
         `--------------------------------%0A` +
         `📍 *Cidade:* ${cidadeInput.value}%0A` +
         `📞 *Contato:* ${telefoneInput.value}%0A` +
