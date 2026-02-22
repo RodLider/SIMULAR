@@ -375,7 +375,7 @@
         `💳 *Parcela:* ${parcelaTexto}%0A` +
         `💵 *Entrada:* ${entradaFinalMsg}`;
 
-      window.open(`https://api.whatsapp.com/send?phone=5598985263537&text=${msg}`, '_blank');
+      window.open(`https://api.whatsapp.com/send?phone=5598984533013&text=${msg}`, '_blank');
     });
   </script>
 </body>
