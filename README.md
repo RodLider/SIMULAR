@@ -1,4 +1,3 @@
-
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
@@ -141,35 +140,19 @@
     <h2>Simulador Rodlider</h2>
 
     <form id="creditoForm">
+      <!-- 1. Nome Completo -->
       <label for="nome">Nome Completo</label>
       <input type="text" id="nome" placeholder="Digite seu nome" required />
 
+      <!-- 2. WhatsApp -->
       <label for="telefone">WhatsApp</label>
       <input type="tel" id="telefone" placeholder="99 99999-9999" maxlength="13" required />
 
+      <!-- 3. Cidade/Estado -->
       <label for="cidade">Cidade/Estado</label>
       <input type="text" id="cidade" placeholder="Ex: São Luís - MA" required />
 
-      <label for="renda">Renda Mensal Aproximada</label>
-      <select id="renda">
-        <option value="">Selecione sua renda</option>
-        <option>Até R$ 1.500</option>
-        <option>R$ 2.500 a R$ 5.000</option>
-        <option>R$ 5.000 a R$ 10.000</option>
-        <option>R$ 10.000 a R$ 20.000</option>
-        <option>Acima de R$ 20.000</option>
-      </select>
-
-      <label for="previsao">Previsão para Realizar</label>
-      <select id="previsao">
-        <option value="">Selecione o prazo</option>
-        <option>Até 30 Dias</option>
-        <option>Em até 2 meses</option>
-        <option>De 3 a 4 meses</option>
-        <option>De 4 a 6 meses</option>
-        <option>Até em 1 ano</option>
-      </select>
-
+      <!-- 4. Objetivo do Investimento -->
       <label for="investimento">Objetivo do Investimento</label>
       <select id="investimento">
         <option>Área Rural / Maquinários Agrícolas</option>
@@ -179,16 +162,7 @@
         <option>Outros</option>
       </select>
 
-      <!-- Nova Pergunta Adicionada -->
-      <label for="historico">Já fez Financiamento ou Consórcio?</label>
-      <select id="historico">
-        <option value="">Selecione uma opção</option>
-        <option value="Nenhum">Não, nunca fiz</option>
-        <option value="Financiamento">Já fiz Financiamento</option>
-        <option value="Consórcio">Já fiz Consórcio</option>
-        <option value="Ambos">Já fiz Ambos</option>
-      </select>
-
+      <!-- 5. Valor do Crédito Desejado -->
       <label for="valor">Valor do Crédito Desejado</label>
       <select id="valor">
         <option value="">Selecione o valor</option>
@@ -208,9 +182,31 @@
         <option value="6000000">Acima de R$ 6.000.000</option>
       </select>
 
+      <!-- 6. Sugestão de Parcela -->
       <label for="parcela">Sugestão de Parcela</label>
       <select id="parcela" disabled>
         <option value="">Selecione o crédito primeiro</option>
+      </select>
+
+      <!-- Campos Secundários (Movidos para baixo) -->
+      <label for="renda">Renda Mensal Aproximada</label>
+      <select id="renda">
+        <option value="">Selecione sua renda</option>
+        <option>Até R$ 1.500</option>
+        <option>R$ 2.500 a R$ 5.000</option>
+        <option>R$ 5.000 a R$ 10.000</option>
+        <option>R$ 10.000 a R$ 20.000</option>
+        <option>Acima de R$ 20.000</option>
+      </select>
+
+      <label for="previsao">Previsão para Realizar</label>
+      <select id="previsao">
+        <option value="">Selecione o prazo</option>
+        <option>Até 30 Dias</option>
+        <option>Em até 2 meses</option>
+        <option>De 3 a 4 meses</option>
+        <option>De 4 a 6 meses</option>
+        <option>Até em 1 ano</option>
       </select>
 
       <label for="possuiEntrada">Você Possui Entrada?</label>
@@ -256,12 +252,11 @@
     const nomeInput = document.getElementById('nome');
     const telefoneInput = document.getElementById('telefone');
     const cidadeInput = document.getElementById('cidade');
-    const rendaSelect = document.getElementById('renda');
-    const previsaoSelect = document.getElementById('previsao');
     const investimentoSelect = document.getElementById('investimento');
-    const historicoSelect = document.getElementById('historico'); // Nova variável
     const valorSelect = document.getElementById('valor');
     const parcelaSelect = document.getElementById('parcela');
+    const rendaSelect = document.getElementById('renda');
+    const previsaoSelect = document.getElementById('previsao');
     const possuiEntradaSelect = document.getElementById('possuiEntrada');
     const containerValorEntrada = document.getElementById('containerValorEntrada');
     const entradaSelect = document.getElementById('valorEntrada');
@@ -321,7 +316,6 @@
         cidadeInput.value.length >= 2,
         rendaSelect.value !== "",
         previsaoSelect.value !== "",
-        historicoSelect.value !== "", // Validando o novo campo
         valorSelect.value !== "",
         parcelaSelect.value !== ""
       ];
@@ -335,7 +329,7 @@
     }
 
     // Listeners para validação em tempo real
-    [nomeInput, telefoneInput, cidadeInput, rendaSelect, previsaoSelect, historicoSelect, parcelaSelect, entradaSelect].forEach(el => {
+    [nomeInput, telefoneInput, cidadeInput, rendaSelect, previsaoSelect, parcelaSelect, entradaSelect].forEach(el => {
       el.addEventListener('input', validarBotao);
       el.addEventListener('change', validarBotao);
     });
@@ -354,25 +348,24 @@
     btn.addEventListener('click', () => {
       const valorCreditoTexto = valorSelect.options[valorSelect.selectedIndex].text;
       const parcelaTexto = parcelaSelect.options[parcelaSelect.selectedIndex].text;
-      const historicoTexto = historicoSelect.options[historicoSelect.selectedIndex].text; // Captura do novo campo
       
       let entradaFinalMsg = "Não possui entrada no momento";
       if (possuiEntradaSelect.value === 'Sim') {
         entradaFinalMsg = `Sim (${entradaSelect.options[entradaSelect.selectedIndex].text})`;
       }
 
+      // Reorganizado também no texto enviado para o WhatsApp para seguir a nova ordem visual
       const msg = 
         `Olá! Me chamo *${nomeInput.value}*.%0A%0A` +
         `Gostaria de uma simulação de crédito:%0A` +
         `--------------------------------%0A` +
         `📍 *Cidade:* ${cidadeInput.value}%0A` +
         `📞 *Contato:* ${telefoneInput.value}%0A` +
-        `📊 *Renda:* ${rendaSelect.value}%0A` +
-        `⏳ *Previsão:* ${previsaoSelect.value}%0A` +
         `🏡 *Objetivo:* ${investimentoSelect.value}%0A` +
-        `📜 *Histórico:* ${historicoTexto}%0A` +
         `💰 *Crédito:* ${valorCreditoTexto}%0A` +
         `💳 *Parcela:* ${parcelaTexto}%0A` +
+        `📊 *Renda:* ${rendaSelect.value}%0A` +
+        `⏳ *Previsão:* ${previsaoSelect.value}%0A` +
         `💵 *Entrada:* ${entradaFinalMsg}`;
 
       window.open(`https://api.whatsapp.com/send?phone=5598984533013&text=${msg}`, '_blank');
