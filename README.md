@@ -137,7 +137,7 @@
 </head>
 <body>
   <div class="container">
-    <h2>Simulador Rodlider</h2>
+    <h2>Simulador</h2>
 
     <form id="creditoForm">
       <!-- 1. Nome Completo -->
