@@ -357,7 +357,7 @@
       // Reorganizado também no texto enviado para o WhatsApp para seguir a nova ordem visual
       const msg = 
         `Olá! Me chamo *${nomeInput.value}*.%0A%0A` +
-        `Gostaria de uma simulação de crédito:%0A` +
+        `Tenho Interesse em mais informações:%0A` +
         `--------------------------------%0A` +
         `📍 *Cidade:* ${cidadeInput.value}%0A` +
         `📞 *Contato:* ${telefoneInput.value}%0A` +
