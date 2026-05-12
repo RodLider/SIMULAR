@@ -12,7 +12,7 @@
     body {
       font-family: 'Segoe UI', 'Roboto', Helvetica, Arial, sans-serif;
       background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)),
-        url('https://i.imgur.com/aPLuDmc.jpeg') center/cover no-repeat fixed;
+        url('https://i.imgur.com/feeaOsL.jpeg') center/cover no-repeat fixed;
       margin: 0;
       padding: 20px;
       min-height: 100vh;
